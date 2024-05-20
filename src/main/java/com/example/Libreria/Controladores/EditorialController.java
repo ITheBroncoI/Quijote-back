@@ -2,13 +2,13 @@ package com.example.Libreria.Controladores;
 
 import com.example.Libreria.dto.EditorialDTO;
 import com.example.Libreria.dto.mapper.EditorialMapperImpl;
+import com.example.Libreria.modelo.Editorial;
 import com.example.Libreria.servicios.EditorialService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/editorial")
@@ -22,9 +22,21 @@ public class EditorialController {
         this.editorialMapper = editorialMapper;
     }
 
-    // Metodo para guardar una editorial
+    // Metodo para guardar/actualizar una editorial
     @PostMapping("/guardar")
     public int guardarEditorial(@RequestBody @Valid EditorialDTO editorialDTO) {
         return editorialService.guardarEditorial(editorialMapper.editorialDTOToEditorial(editorialDTO));
+    }
+
+    // Metodo para obtener las editoriales existenctes
+    @GetMapping("/obtener")
+    public List<EditorialDTO> obtenerEditoriales(List<Editorial> editoriales) {
+        return editorialMapper.editorialsToEditorialDTOs(editorialService.obtenerEditoriales(editoriales));
+    }
+
+    // Metodo para borrar una editorial segun su Id
+    @DeleteMapping("/borrar/{id}")
+    public void borrarEditorial(@PathVariable int id) {
+        editorialService.eliminarEditorial(id);
     }
 }
