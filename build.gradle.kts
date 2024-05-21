@@ -8,7 +8,6 @@ group = "com.example"
 version = "0.0.1-SNAPSHOT"
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_21
 }
 
 configurations {
@@ -33,6 +32,7 @@ dependencies {
 	implementation("org.mapstruct:mapstruct:1.4.2.Final")
 	annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.withType<Test> {

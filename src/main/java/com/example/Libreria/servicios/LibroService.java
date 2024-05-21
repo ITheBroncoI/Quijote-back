@@ -5,6 +5,8 @@ import com.example.Libreria.repositorios.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LibroService {
     LibroRepository libroRepository;
@@ -17,4 +19,10 @@ public class LibroService {
     public int guardarLibro(Libro libro) {
         return libroRepository.save(libro).getId();
     }
+
+    //
+    public List<Libro> obtenerLibros() {
+        return libroRepository.findAllByEstadoTrueOrderByIdAsc();
+    }
+
 }

@@ -28,6 +28,7 @@ public class LibroDTO {
     private Date fecha_publicacion;
     @NotNull
     private float precio;
+    private int cantidad;
     private LocalDateTime createOn;
     private LocalDateTime updateOn;
     private boolean estado;

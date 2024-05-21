@@ -27,6 +27,7 @@ public class Libro {
     private String nombre;
     private Date fecha_publicacion;
     private float precio;
+    private int cantidad;
     @CreationTimestamp
     private LocalDateTime createOn;
     @UpdateTimestamp
