@@ -26,13 +26,13 @@ public interface LibroRepository extends JpaRepository<Libro, Integer> {
     @Query("SELECT CASE WHEN l.cantidad > 0 THEN true ELSE false END FROM Libro l WHERE l.id = :id")
     boolean verificarInventario(@Param("id") int id);
 
-
-    // Metodo para restar libros del inventario
+    // Metodo para restar libros del inventario - DetallePrestamo
     @Transactional
     @Modifying
     @Query("UPDATE Libro l SET l.cantidad = l.cantidad - :cantidad WHERE l.id = :id")
     void restarCantidad(@Param("id") int id, @Param("cantidad") int cantidad);
 
-    // Metodo para retornar libros al inventario
-
+    // Metodo para retornar libros al inventario - DetallePrestamo
+    @Query("UPDATE Libro l SET l.cantidad = l.cantidad + :cantidad WHERE l.id = :id")
+    void agregarCantidad(@Param("id") int id, @Param("cantidad") int cantidad);
 }

@@ -35,7 +35,7 @@ public class ClienteController {
     }
 
     // Metodo para borrar un cliente segun su Id
-    @DeleteMapping("/orrar/{id}")
+    @DeleteMapping("/borrar/{id}")
     public void eliminarCliente(@PathVariable int id) {
         clienteService.eliminarCliente(id);
     }

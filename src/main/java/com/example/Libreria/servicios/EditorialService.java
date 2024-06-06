@@ -22,7 +22,7 @@ public class EditorialService {
     }
 
     // Metodo para obtener las editoriales existentes
-    public List<Editorial> obtenerEditoriales(List<Editorial> editoriales) {
+    public List<Editorial> obtenerEditoriales() {
         return editorialRepository.findAllByEstadoTrueOrderByIdAsc();
     }
 

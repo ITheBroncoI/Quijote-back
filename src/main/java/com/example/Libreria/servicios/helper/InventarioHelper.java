@@ -14,4 +14,8 @@ public class InventarioHelper {
     public static void extraerInventario(int id, int cantidad) {
         libroRepository.restarCantidad(id, cantidad);
     }
+
+    public static void retornarInventario(int id, int cantidad) {
+        libroRepository.agregarCantidad(id, cantidad);
+    }
 }

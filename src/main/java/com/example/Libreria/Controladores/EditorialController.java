@@ -2,7 +2,6 @@ package com.example.Libreria.Controladores;
 
 import com.example.Libreria.dto.EditorialDTO;
 import com.example.Libreria.dto.mapper.EditorialMapperImpl;
-import com.example.Libreria.modelo.Editorial;
 import com.example.Libreria.servicios.EditorialService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +29,8 @@ public class EditorialController {
 
     // Metodo para obtener las editoriales existenctes
     @GetMapping("/obtener")
-    public List<EditorialDTO> obtenerEditoriales(List<Editorial> editoriales) {
-        return editorialMapper.editorialsToEditorialDTOs(editorialService.obtenerEditoriales(editoriales));
+    public List<EditorialDTO> obtenerEditoriales() {
+        return editorialMapper.editorialsToEditorialDTOs(editorialService.obtenerEditoriales());
     }
 
     // Metodo para borrar una editorial segun su Id

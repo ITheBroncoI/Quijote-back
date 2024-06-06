@@ -4,7 +4,7 @@ import com.example.Libreria.modelo.Detalle_prestamo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface DetallePrestamoRepository extends JpaRepository<Detalle_prestamo, Integer> {
+public interface PrestamoRepository extends JpaRepository<Detalle_prestamo, Integer> {
     // Metodo para guardar/actualizar un registro en el prestamo
     // Metodo proporcionado por JpaRepository
 
