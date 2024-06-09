@@ -13,15 +13,12 @@ import java.time.LocalDateTime;
 @Builder
 public class ClientesDTO {
     private int id;
-    @NotNull
-    @Min(value = 1, message = "Valor minimo 1")
-    private int id_registro;
     @NotBlank
     private String nombre;
     @NotBlank
     private String direccion;
     @NotNull
-    private int numero_telefono;
+    private String telefono;
     private LocalDateTime createOn;
     private LocalDateTime updateOn;
     private boolean estado;

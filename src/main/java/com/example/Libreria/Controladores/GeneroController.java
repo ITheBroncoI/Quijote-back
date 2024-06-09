@@ -30,8 +30,8 @@ public class GeneroController {
 
     // Metodo para obtener los generos existentes
     @GetMapping("/obtener")
-    public List<GeneroDTO> obtenerGeneros(List<Genero> generos) {
-        return generoMapper.generosToGenerosDTO(generoService.obtenerGeneros(generos));
+    public List<GeneroDTO> obtenerGeneros() {
+        return generoMapper.generosToGenerosDTO(generoService.obtenerGeneros());
     }
 
     // Metodo para borrar un genero segun su Id

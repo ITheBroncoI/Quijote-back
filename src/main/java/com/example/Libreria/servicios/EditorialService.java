@@ -2,6 +2,7 @@ package com.example.Libreria.servicios;
 
 import com.example.Libreria.modelo.Editorial;
 import com.example.Libreria.repositorios.EditorialRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,10 @@ public class EditorialService {
 
     // Metodo para borrar una editorial
     public void eliminarEditorial(Integer id) {
-        editorialRepository.eliminarEditorial(id);
+        try {
+            editorialRepository.eliminarEditorial(id);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar la editorial", e);
+        }
     }
 }

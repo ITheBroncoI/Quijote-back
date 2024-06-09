@@ -20,10 +20,10 @@ public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int id_sucursal;
+    private String nombre_sucursal;
     private String nombre;
     private String direccion;
-    private int telefono;
+    private String telefono;
     private String contrasena;
     @CreationTimestamp
     private LocalDateTime createOn;

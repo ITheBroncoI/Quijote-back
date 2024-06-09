@@ -11,21 +11,16 @@ import java.time.LocalDateTime;
 @Builder
 public class LibroDTO {
     private int id;
-    @NotNull
-    @Min(value = 1, message = "Valor minimo 1")
-    private int id_sucursal;
-    @NotNull
-    @Min(value = 1, message = "Valor minimo 1")
-    private int id_genero;
-    @NotNull
-    @Min(value = 1, message = "Valor minimo 1")
-    private int id_editorial;
     @NotBlank
-    // Email
-    //@Pattern(regexp = "^[a-z0-9!#$%&''+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&''+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")
+    private String sucursal;
+    @NotBlank
+    private String genero;
+    @NotBlank
+    private String editorial;
+    @NotBlank
     private String nombre;
     @NotNull
-    private Date fecha_publicacion;
+    private Date fecha;
     @NotNull
     private float precio;
     private int cantidad;
@@ -33,3 +28,6 @@ public class LibroDTO {
     private LocalDateTime updateOn;
     private boolean estado;
 }
+
+// Email
+//@Pattern(regexp = "^[a-z0-9!#$%&''+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&''+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")

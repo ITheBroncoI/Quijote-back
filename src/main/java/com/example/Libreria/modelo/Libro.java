@@ -21,11 +21,11 @@ public class Libro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int id_sucursal;
-    private int id_genero;
-    private int id_editorial;
+    private String sucursal;
+    private String genero;
+    private String editorial;
     private String nombre;
-    private Date fecha_publicacion;
+    private Date fecha;
     private float precio;
     private int cantidad;
     @CreationTimestamp

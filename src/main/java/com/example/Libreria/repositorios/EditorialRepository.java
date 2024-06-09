@@ -1,11 +1,11 @@
 package com.example.Libreria.repositorios;
 
 import com.example.Libreria.modelo.Editorial;
-import jakarta.transaction.Transactional;
-import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +20,6 @@ public interface EditorialRepository extends JpaRepository<Editorial, Integer> {
     // Metodo para borrar de forma logica una editorial
     @Transactional
     @Modifying
-    @Query ("update Editorial e set e.estado = false where e.id = :id")
-    public void eliminarEditorial(@Param("id") Integer id);
+    @Query ("UPDATE Editorial SET estado = false WHERE id = :id")
+    void eliminarEditorial(@Param("id") Integer id);
 }

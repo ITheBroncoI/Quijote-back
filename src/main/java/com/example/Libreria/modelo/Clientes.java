@@ -20,10 +20,9 @@ public class Clientes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int id_registro;
     private String nombre;
     private String direccion;
-    private int numero_telefono;
+    private String telefono;
     @CreationTimestamp
     private LocalDateTime createOn;
     @UpdateTimestamp

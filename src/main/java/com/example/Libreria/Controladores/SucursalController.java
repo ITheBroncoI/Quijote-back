@@ -30,8 +30,8 @@ public class SucursalController {
 
     // Metodo para obtener las sucursales existentes
     @GetMapping("/obtener")
-    public List<SucursalDTO> obtenerSucursales(List<Sucursal> sucursales) {
-        return sucursalMapper.sucursalesToSucursalDTOs(sucursalService.obtenerSucursales(sucursales));
+    public List<SucursalDTO> obtenerSucursales() {
+        return sucursalMapper.sucursalesToSucursalDTOs(sucursalService.obtenerSucursales());
     }
 
     // Metodo para borrar una sucursal segun su Id

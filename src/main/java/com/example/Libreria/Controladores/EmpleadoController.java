@@ -30,13 +30,13 @@ public class EmpleadoController {
 
     // Metodo para obtener los empleados existentes
     @GetMapping("/obtener")
-    public List<EmpleadoDTO> obtenerEmpleados(List<Empleado> empleados) {
-        return empleadosMapper.empleadosToEmpleadoDTO(empleadoService.obtenerEmpleados(empleados));
+    public List<EmpleadoDTO> obtenerEmpleados() {
+        return empleadosMapper.empleadosToEmpleadoDTO(empleadoService.obtenerEmpleados());
     }
 
     // Metodo para borrar un empleado segun su Id
     @DeleteMapping("/borrar/{id}")
-    public void borrarEmpleado(@PathVariable int id) {
+    public void borrarEmpleado(@PathVariable Integer id) {
         empleadoService.eliminarEmpleado(id);
     }
 }

@@ -1,11 +1,11 @@
 package com.example.Libreria.repositorios;
 
 import com.example.Libreria.modelo.Empleado;
-import jakarta.transaction.Transactional;
-import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +19,6 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
     // Metodo para borrar de forma logica un empleado
     @Transactional
     @Modifying
-    @Query ("update Clientes c set c.estado = false where c.id = :id")
-    public void eliminarEmpleado(@Param("id") Integer id);
+    @Query ("update Empleado set estado = false where id = :id")
+    void eliminarEmpleado(@Param("id") Integer id);
 }

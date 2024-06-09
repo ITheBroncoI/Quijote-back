@@ -1,11 +1,11 @@
 package com.example.Libreria.repositorios;
 
 import com.example.Libreria.modelo.Clientes;
-import jakarta.transaction.Transactional;
-import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +19,6 @@ public interface ClienteRepository extends JpaRepository<Clientes, Integer> {
     // Metodo para borrar de forma logica un cliente
     @Transactional
     @Modifying
-    @Query ("update Clientes c set c.estado = false where c.id = :id")
+    @Query ("update Clientes set estado = false where id = :id")
     public void eliminarCliente(@Param("id") Integer id);
 }

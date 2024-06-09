@@ -22,7 +22,7 @@ public class ClienteService {
     }
 
     // Metodo para obtener los clientes existentes
-    public List<Clientes> obtenerClientes(List<Clientes> clientes) {
+    public List<Clientes> obtenerClientes() {
         return clienteRepository.findAllByEstadoTrueOrderByIdAsc();
     }
 

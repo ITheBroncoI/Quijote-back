@@ -22,7 +22,7 @@ public class EmpleadoService {
     }
 
     // Metodo para obtener los empleados existentes
-    public List<Empleado> obtenerEmpleados(List<Empleado> empleados) {
+    public List<Empleado> obtenerEmpleados() {
         return empleadoRepository.findAllByEstadoTrueOrderByIdAsc();
     }
 

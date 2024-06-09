@@ -12,15 +12,14 @@ import java.time.LocalDateTime;
 @Builder
 public class EmpleadoDTO {
     private int id;
-    @NotNull
-    @Min(value = 1, message = "Valor minimo 1")
-    private int id_sucursal;
+    @NotBlank
+    private String nombre_sucursal;
     @NotBlank
     private String nombre;
     @NotBlank
     private String direccion;
     @NotNull
-    private int telefono;
+    private String telefono;
     @NotBlank
     private String contrasena;
     private LocalDateTime createOn;

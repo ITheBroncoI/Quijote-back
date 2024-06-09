@@ -23,7 +23,7 @@ public class GeneroService {
     }
 
     // Metodo para obtener los generos existentes
-    public List<Genero> obtenerGeneros(List<Genero> generos) {
+    public List<Genero> obtenerGeneros() {
         return generoRepository.findAllByEstadoTrueOrderByIdAsc();
     }
 

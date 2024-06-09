@@ -23,7 +23,7 @@ public class SucursalService {
     }
 
     // Metodo para obtener las sucursales existentes
-    public List<Sucursal> obtenerSucursales(List<Sucursal> sucursales) {
+    public List<Sucursal> obtenerSucursales() {
         return sucursalRepository.findAllByEstadoTrueOrderByIdAsc();
     }
 

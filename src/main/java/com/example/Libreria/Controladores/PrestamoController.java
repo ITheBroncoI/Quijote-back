@@ -26,6 +26,7 @@ public class PrestamoController {
     @PostMapping("/guardar")
     public int guardarPrestamo(@RequestBody @Valid PrestamoDTO prestamo) {
 
+        return 0;
     }
 
 }

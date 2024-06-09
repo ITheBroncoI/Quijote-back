@@ -30,8 +30,8 @@ public class ClienteController {
 
     // Metodo para obtener la lista de los clientes existentes
     @GetMapping("/obtener")
-    public List<ClientesDTO> obtenerClientes(List<Clientes> clientes) {
-        return clientesMapper.clientesToClientesDTO(clienteService.obtenerClientes(clientes));
+    public List<ClientesDTO> obtenerClientes() {
+        return clientesMapper.clientesToClientesDTO(clienteService.obtenerClientes());
     }
 
     // Metodo para borrar un cliente segun su Id

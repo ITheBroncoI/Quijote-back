@@ -35,7 +35,7 @@ public class EditorialController {
 
     // Metodo para borrar una editorial segun su Id
     @DeleteMapping("/borrar/{id}")
-    public void borrarEditorial(@PathVariable int id) {
+    public void borrarEditorial(@PathVariable Integer id) {
         editorialService.eliminarEditorial(id);
     }
 }
