@@ -20,7 +20,8 @@ public class DetalleVenta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int id_venta;
+    @Column(name = "id_venta")
+    private int idVenta;
     private int id_libro;
     private int cantidad;
     private float precio;

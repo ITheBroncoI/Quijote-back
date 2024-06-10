@@ -48,7 +48,7 @@ public class DetallePrestamoService {
         int cantidad = detallePrestamo.getCantidad();
 
         inventarioHelper.retornarInventario(id_libro, cantidad);
-        detallePrestamoRepository.eliminarDetalle(id);
+        detallePrestamoRepository.eliminarDetallePrestamo(id);
     }
 
 }

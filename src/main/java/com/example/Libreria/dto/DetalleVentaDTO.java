@@ -13,7 +13,7 @@ public class DetalleVentaDTO {
     private int id;
     @NotNull
     @Min(value = 1, message = "Valor minimo 1")
-    private int id_venta;
+    private int idVenta;
     @NotNull
     @Min(value = 1, message = "Valor minimo 1")
     private int id_libro;

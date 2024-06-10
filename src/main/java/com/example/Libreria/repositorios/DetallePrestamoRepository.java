@@ -21,8 +21,8 @@ public interface DetallePrestamoRepository extends JpaRepository<DetallePrestamo
     @Transactional
     @Modifying
     @Query ("UPDATE DetallePrestamo SET estado = FALSE WHERE id = :id")
-    void eliminarDetalle(@Param("id") Integer id);
+    void eliminarDetallePrestamo(@Param("id") Integer id);
 
-    // Metodo para obtener toos los detalles de un prestamo especifico mediante el id
+    // Metodo para obtener todos los detalles de un prestamo especifico mediante el id
     List<DetallePrestamo> findAllByIdPrestamo(int idPrestamo);
 }

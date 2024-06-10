@@ -46,6 +46,6 @@ public class DetalleVentaService {
         int cantidad = detalleVenta.getCantidad();
 
         inventarioHelper.retornarInventario(id_libro,cantidad);
-        detalleVentaRepository.deleteById(id);
+        detalleVentaRepository.eliminarDetalleVenta(id);
     }
 }
