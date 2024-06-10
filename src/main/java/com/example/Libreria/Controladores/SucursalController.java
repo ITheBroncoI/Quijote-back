@@ -22,9 +22,15 @@ public class SucursalController {
         this.sucursalMapper = sucursalMapper;
     }
 
-    // Metodo para guardar/actualizar una sucursal
+    // Metodo para guardar una sucursal
     @PostMapping("/guardar")
     public int guardarSucursal(@RequestBody @Valid SucursalDTO sucursalDTO) {
+        return sucursalService.guardarSucursal(sucursalMapper.sucursalDTOToSucursal(sucursalDTO));
+    }
+
+    // Metodo para actualizar una sucursal
+    @PutMapping("/actualizar")
+    public int actualizarSucursal(@RequestBody @Valid SucursalDTO sucursalDTO) {
         return sucursalService.guardarSucursal(sucursalMapper.sucursalDTOToSucursal(sucursalDTO));
     }
 

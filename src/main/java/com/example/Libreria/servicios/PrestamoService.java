@@ -1,52 +1,41 @@
 package com.example.Libreria.servicios;
 
-import com.example.Libreria.modelo.Detalle_prestamo;
+import com.example.Libreria.modelo.Prestamo;
 import com.example.Libreria.repositorios.PrestamoRepository;
-import com.example.Libreria.servicios.helper.InventarioHelper;
-import jakarta.transaction.Transactional;
+import com.example.Libreria.servicios.helper.PrestamoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 public class PrestamoService {
-    PrestamoRepository prestamoRepository;
+    private final PrestamoHelper prestamoHelper;
+    private final PrestamoRepository prestamoRepository;
 
     @Autowired
-    public PrestamoService(PrestamoRepository prestamoRepository) {
+    public PrestamoService(PrestamoHelper prestamoHelper, PrestamoRepository prestamoRepository) {
+        this.prestamoHelper = prestamoHelper;
         this.prestamoRepository = prestamoRepository;
     }
 
+    // Metodo para guardar un prestamo
+    public int guardarPrestamo(Prestamo prestamo) {
+        return prestamoRepository.save(prestamo).getId();
+    }
+
+    // Metodo para obtener los prestamos vigentes
+    public List<Prestamo> obtenerPrestamos() {
+        return prestamoRepository.findAllByEstadoTrueOrderByIdAsc();
+    }
+
+    // Metodo para entregar un prestamo
     @Transactional
-    // Metodo para guardar un registro en el detalle prestamo
-    public int guardarLibro(Detalle_prestamo detalle_prestamo) {
-        int id_libro = detalle_prestamo.getId_libro();
-        int cantidad = detalle_prestamo.getCantidad();
-
-        if (!InventarioHelper.verificarInventario(id_libro)) {
-            throw new IllegalStateException("No hay suficiente inventario para el libro con ID: " + id_libro);
-        }
-
-        InventarioHelper.extraerInventario(id_libro, cantidad);
-        return prestamoRepository.save(detalle_prestamo).getId();
+    public void entregarPrestamo(int id) {
+        System.out.println("---PASA 2---");
+        prestamoHelper.retornarLibrosDePrestamo(id);
+        System.out.println("---PASA 3---");
+        prestamoRepository.entregarPrestamo(id);
     }
-
-    // Metodo para obtener los registros del prestamo
-    public List<Detalle_prestamo> obtenerDetalles(List<Detalle_prestamo> detalle_prestamos) {
-        return prestamoRepository.findAll();
-    }
-
-    // Metodo para borrar un detalle del prestamo
-    public void eliminarDetallePrestamo(int id) {
-        Detalle_prestamo detallePrestamo = prestamoRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Detalle de prestamo no encontrado con id: " + id));
-
-        int id_libro = detallePrestamo.getId_libro();
-        int cantidad = detallePrestamo.getCantidad();
-
-        InventarioHelper.retornarInventario(id_libro, cantidad);
-        prestamoRepository.deleteById(id);
-    }
-
 }

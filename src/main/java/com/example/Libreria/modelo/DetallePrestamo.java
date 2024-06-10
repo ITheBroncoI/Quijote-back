@@ -17,12 +17,13 @@ import java.util.Date;
 @Builder
 @Entity
 @Table (name = "detalles_prestamos")
-public class Detalle_prestamo {
+public class DetallePrestamo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int id_libro;
-    private int id_prestamo;
+    @Column(name = "id_prestamo")
+    private int idPrestamo;
     private int cantidad;
     private Date fecha;
     @CreationTimestamp

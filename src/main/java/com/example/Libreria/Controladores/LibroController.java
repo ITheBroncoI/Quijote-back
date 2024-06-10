@@ -21,13 +21,26 @@ public class LibroController {
         this.libroMapper = libroMapper;
     }
 
+    // Metodo para guardar un libro
     @PostMapping("/guardar")
     public int guardarLibro(@RequestBody @Valid LibroDTO libroDTO) {
         return libroService.guardarLibro(libroMapper.libroDTOToLibro(libroDTO));
     }
 
+    // Metodo para actualizar un libro
+    @PutMapping("/actualizar")
+    public int actualizarLibro(@RequestBody @Valid LibroDTO libroDTO) {
+        return libroService.guardarLibro(libroMapper.libroDTOToLibro(libroDTO));
+    }
+    // Metodo para obtener los libros existentes
     @GetMapping("/obtener")
     public List<LibroDTO> obtenerLibros() {
         return libroMapper.librosToLibroDTOs(libroService.obtenerLibros());
+    }
+
+    // Metodo para borrar un libro segun su Id
+    @DeleteMapping("/eliminar/{id}")
+    public void eliminarLibro(@PathVariable int id) {
+        libroService.eliminarLibro(id);
     }
 }

@@ -21,9 +21,15 @@ public class EditorialController {
         this.editorialMapper = editorialMapper;
     }
 
-    // Metodo para guardar/actualizar una editorial
+    // Metodo para guardar una editorial
     @PostMapping("/guardar")
     public int guardarEditorial(@RequestBody @Valid EditorialDTO editorialDTO) {
+        return editorialService.guardarEditorial(editorialMapper.editorialDTOToEditorial(editorialDTO));
+    }
+
+    // Metodo para actualizar una editorial
+    @PutMapping("/actualizar")
+    public int actualizarEditorial(@RequestBody @Valid EditorialDTO editorialDTO) {
         return editorialService.guardarEditorial(editorialMapper.editorialDTOToEditorial(editorialDTO));
     }
 

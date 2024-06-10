@@ -1,7 +1,7 @@
 package com.example.Libreria.dto.mapper;
 
-import com.example.Libreria.dto.Detalle_prestamoDTO;
-import com.example.Libreria.modelo.Detalle_prestamo;
+import com.example.Libreria.dto.DetallePrestamoDTO;
+import com.example.Libreria.modelo.DetallePrestamo;
 import org.mapstruct.Mapper;
 
 import java.util.List;
@@ -9,8 +9,8 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface DetallePrestamoMapper {
     // Individuales
-    Detalle_prestamoDTO detallePrestamoToDetallePrestamoDTO(Detalle_prestamo detalle_prestamo);
-    Detalle_prestamo detallePrestamoDTOToDetallePrestamo(Detalle_prestamoDTO detalle_prestamoDTO);
+    DetallePrestamoDTO detallePrestamoToDetallePrestamoDTO(DetallePrestamo detalle_prestamo);
+    DetallePrestamo detallePrestamoDTOToDetallePrestamo(DetallePrestamoDTO detalle_prestamoDTO);
     // Lista
-    List<Detalle_prestamoDTO> detallesToDetallePrestamoDTO(List<Detalle_prestamo> detalle_prestamo);
+    List<DetallePrestamoDTO> detallesToDetallePrestamoDTO(List<DetallePrestamo> detalle_prestamo);
 }

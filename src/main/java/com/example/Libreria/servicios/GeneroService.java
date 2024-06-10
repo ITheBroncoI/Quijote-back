@@ -2,9 +2,9 @@ package com.example.Libreria.servicios;
 
 import com.example.Libreria.modelo.Genero;
 import com.example.Libreria.repositorios.GeneroRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +17,7 @@ public class GeneroService {
         this.generoRepository = generoRepository;
     }
 
+    @Transactional
     // Metodo para guardar/actualizar un genero
     public int guardarGenero(Genero genero) {
         return generoRepository.save(genero).getId();

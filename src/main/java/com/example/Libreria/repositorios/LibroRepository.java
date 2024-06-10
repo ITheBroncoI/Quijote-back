@@ -19,8 +19,8 @@ public interface LibroRepository extends JpaRepository<Libro, Integer> {
     // Metodo para borrar de forma logica un libro
     @Transactional
     @Modifying
-    @Query ("update Libro l set l.estado = false where l.id = :id")
-    public Integer updateEstado(@Param("id") Integer id);
+    @Query ("update Libro set estado = false where id = :id")
+    void eliminarLibro(@Param("id") Integer id);
 
     // Metodo para comprobar existencia de inventario de un libro
     @Query("SELECT CASE WHEN l.cantidad > 0 THEN true ELSE false END FROM Libro l WHERE l.id = :id")
@@ -32,6 +32,8 @@ public interface LibroRepository extends JpaRepository<Libro, Integer> {
     @Query("UPDATE Libro l SET l.cantidad = l.cantidad - :cantidad WHERE l.id = :id")
     void restarCantidad(@Param("id") int id, @Param("cantidad") int cantidad);
 
+    @Modifying
+    @Transactional
     // Metodo para retornar libros al inventario - DetallePrestamo
     @Query("UPDATE Libro l SET l.cantidad = l.cantidad + :cantidad WHERE l.id = :id")
     void agregarCantidad(@Param("id") int id, @Param("cantidad") int cantidad);

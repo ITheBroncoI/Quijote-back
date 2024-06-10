@@ -22,9 +22,15 @@ public class GeneroController {
         this.generoMapper = generoMapper;
     }
 
-    // Metodo para guardar/actualizar un genero
+    // Metodo para guardar un genero
     @PostMapping("/guardar")
     public int guardarGenero(@RequestBody @Valid GeneroDTO generoDTO) {
+        return generoService.guardarGenero(generoMapper.generoDTOToGenero(generoDTO));
+    }
+
+    // Metodo para actualizar un genero
+    @PutMapping("/actualizar")
+    public int actualizarGenero(@RequestBody @Valid GeneroDTO generoDTO) {
         return generoService.guardarGenero(generoMapper.generoDTOToGenero(generoDTO));
     }
 

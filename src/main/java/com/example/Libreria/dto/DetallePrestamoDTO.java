@@ -6,24 +6,25 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Builder
-public class Detalle_ventaDTO {
+public class DetallePrestamoDTO {
     private int id;
-    @NotNull
-    @Min(value = 1, message = "Valor minimo 1")
-    private int id_venta;
     @NotNull
     @Min(value = 1, message = "Valor minimo 1")
     private int id_libro;
     @NotNull
+    @Min(value = 1, message = "Valor minimo 1")
+    private int idPrestamo;
+    @NotNull
     private int cantidad;
     @NotNull
-    private float precio;
-    @NotNull
-    private float subtotal;
+    private Date fecha;
     private LocalDateTime createOn;
     private LocalDateTime updateOn;
     private boolean estado;
+    // Saluda Roberto
+    //Hola Ochoa
 }

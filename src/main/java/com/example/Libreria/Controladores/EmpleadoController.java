@@ -22,9 +22,15 @@ public class EmpleadoController {
         this.empleadosMapper = empleadosMapper;
     }
 
-    // Metodo para guardar/actualizar un empleado
+    // Metodo para guardar un empleado
     @PostMapping("/guardar")
     public int guardarEmpleado(@RequestBody @Valid EmpleadoDTO empleadoDTO) {
+        return empleadoService.guardarEmpleado(empleadosMapper.empleadoDTOToEmpleado(empleadoDTO));
+    }
+
+    // Metodo para actualizar un empleado
+    @PutMapping("/actualizar")
+    public int actualizarEmpleado(@RequestBody @Valid EmpleadoDTO empleadoDTO) {
         return empleadoService.guardarEmpleado(empleadosMapper.empleadoDTOToEmpleado(empleadoDTO));
     }
 

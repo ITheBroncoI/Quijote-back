@@ -16,13 +16,18 @@ public class LibroService {
         this.libroRepository = libroRepository;
     }
 
+    // Metodo para guardar/actualizar un libro
     public int guardarLibro(Libro libro) {
         return libroRepository.save(libro).getId();
     }
 
-    //
+    // Metodo para obtener los libros existentes
     public List<Libro> obtenerLibros() {
         return libroRepository.findAllByEstadoTrueOrderByIdAsc();
     }
+
+    // Metodo para borrar un libro
+    public void eliminarLibro(Integer id) {
+        libroRepository.eliminarLibro(id);}
 
 }

@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface ClienteRepository extends JpaRepository<Clientes, Integer> {
-    // Metodo para guardar/actualizar una editorial
+    // Metodo para guardar/actualizar un cliente
     // Metodo proporcionado por JpaRepository
 
     // Metodo para obtener todos los clientes existentes en orden ascendente

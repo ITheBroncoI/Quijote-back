@@ -22,9 +22,15 @@ public class ClienteController {
         this.clientesMapper = clientesMapper;
     }
 
-    // Metodo para guardar/actualizar un cliente
+    // Metodo para guardar un cliente
     @PostMapping("/guardar")
     public int guardarCliente(@RequestBody @Valid ClientesDTO clienteDTO) {
+        return clienteService.guardarCliente(clientesMapper.clientesDTOToClientes(clienteDTO));
+    }
+
+    // Metodo para actualizar un cliente
+    @PutMapping("/actualizar")
+    public int actualizarCliente(@RequestBody @Valid ClientesDTO clienteDTO) {
         return clienteService.guardarCliente(clientesMapper.clientesDTOToClientes(clienteDTO));
     }
 

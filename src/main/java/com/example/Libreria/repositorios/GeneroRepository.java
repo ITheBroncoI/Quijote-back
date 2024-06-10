@@ -21,5 +21,5 @@ public interface GeneroRepository extends JpaRepository<Genero, Integer> {
     @Transactional
     @Modifying
     @Query ("update Genero g set g.estado = false where g.id = :id")
-    public void eliminarGenero(@Param("id") Integer id);
+    void eliminarGenero(@Param("id") Integer id);
 }

@@ -11,6 +11,7 @@ public interface LibroMapper {
     // individuales
     LibroDTO libroToLibroDTO(Libro libro);
     Libro libroDTOToLibro(LibroDTO libroDTO);
+
     // listas
     List<LibroDTO> librosToLibroDTOs(List<Libro> libros);
 }
