@@ -33,9 +33,7 @@ public class PrestamoService {
     // Metodo para entregar un prestamo
     @Transactional
     public void entregarPrestamo(int id) {
-        System.out.println("---PASA 2---");
         prestamoHelper.retornarLibrosDePrestamo(id);
-        System.out.println("---PASA 3---");
         prestamoRepository.entregarPrestamo(id);
     }
 }

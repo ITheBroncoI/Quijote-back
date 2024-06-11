@@ -22,10 +22,7 @@ public class PrestamoHelper {
     }
 
     public void retornarLibrosDePrestamo(int idPrestamo) {
-        System.out.println("--- PASA 4 ---");
         List<DetallePrestamo> detalles = detallePrestamoRepository.findAllByIdPrestamo(idPrestamo);
-        System.out.println("--- PASA 5 ---");
-        System.out.println("TAMAÑO: " + detalles.size());
 
         for (DetallePrestamo detalle : detalles) {
             int id = detalle.getId();

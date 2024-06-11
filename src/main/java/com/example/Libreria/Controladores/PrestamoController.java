@@ -13,15 +13,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/prestamo")
 public class PrestamoController {
-    private final SucursalService sucursalService;
-    PrestamoService prestamoService;
-    PrestamoMapperImpl prestamoMapper;
+    private final PrestamoService prestamoService;
+    private final PrestamoMapperImpl prestamoMapper;
 
     @Autowired
-    public PrestamoController(PrestamoService prestamoService, PrestamoMapperImpl prestamoMapper, SucursalService sucursalService) {
+    public PrestamoController(PrestamoService prestamoService, PrestamoMapperImpl prestamoMapper) {
         this.prestamoService = prestamoService;
         this.prestamoMapper = prestamoMapper;
-        this.sucursalService = sucursalService;
     }
 
     // Metodo para guardar un prestamo
@@ -39,7 +37,6 @@ public class PrestamoController {
     // Metodo para entregar un prestamo
     @DeleteMapping("/borrar/{id}")
     public void entregarPrestamo(@PathVariable int id) {
-        System.out.println("---PASA 1---");
         prestamoService.entregarPrestamo(id);
     }
 }
