@@ -2,8 +2,6 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.2.5"
 	id("io.spring.dependency-management") version "1.1.4"
-	kotlin("jvm") version "1.6.21"
-	kotlin("plugin.spring") version "1.6.21"
 }
 
 group = "com.example"
@@ -36,7 +34,7 @@ dependencies {
 	implementation("org.mapstruct:mapstruct:1.4.2.Final")
 	annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
-	implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("stdlib-jdk8"))
 	implementation("io.jsonwebtoken:jjwt:0.9.1")
 	implementation("javax.servlet:javax.servlet-api:4.0.1")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
